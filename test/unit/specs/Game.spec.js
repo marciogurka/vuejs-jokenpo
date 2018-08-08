@@ -1,9 +1,14 @@
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import Game from '@/components/Game';
 
-describe('HelloWorld.vue', () => {
-  const wrapper = mount(Game);
-  it('should render correct contents', () => {
-    expect(wrapper.html()).toContain('<div class="game"></div>');
+describe('GameSpec.vue', () => {
+  let cmp;
+
+  beforeEach(() => {
+    cmp = shallowMount(Game, {});
+  });
+
+  it('has the expected html structure', () => {
+    expect(cmp.element).toMatchSnapshot();
   });
 });

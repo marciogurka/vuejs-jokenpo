@@ -7,7 +7,7 @@
       <p class="subtitle">
         Start the game below!
       </p>
-      <div class="columns is-mobile">
+      <div class="columns">
         <Player></Player>
         <Board></Board>
         <Player></Player>
@@ -23,11 +23,6 @@ import Board from '@/components/Board';
 export default {
   name: 'Game',
   components: { Player, Board },
-  data() {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-    };
-  },
 };
 </script>
 
