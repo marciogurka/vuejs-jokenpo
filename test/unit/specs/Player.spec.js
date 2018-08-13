@@ -78,12 +78,29 @@ describe('PlayerSpec.vue', () => {
       expect(cmp.find('.submit-name').attributes().disabled).toBe(undefined);
     });
 
-    it('when the submit name button is clicked, triggers a startGame event', () => {
+    it('when the submit name button is clicked, triggers a startGame method', () => {
       const stub = jest.fn();
       cmp = createCmp();
       cmp.setMethods({ startGame: stub });
       cmp.find('.submit-name').trigger('click');
       expect(stub).toBeCalled();
+    });
+
+    it('dont trigger a startGame event with rock option when a startGame method is called and has no name', () => {
+      cmp = createCmp();
+      cmp.vm.name = '';
+      const stub = jest.fn();
+      cmp.vm.$on('startGame', stub);
+      cmp.find('.submit-name').trigger('click');
+      expect(stub).not.toHaveBeenCalled();
+    });
+
+    it('triggers a startGame event with rock option when a startGame method is called and has a name', () => {
+      cmp = createCmp();
+      const stub = jest.fn();
+      cmp.vm.$on('startGame', stub);
+      cmp.find('.submit-name').trigger('click');
+      expect(stub).toBeCalledWith('Bot');
     });
 
     it('has a back option', () => {
@@ -121,12 +138,12 @@ describe('PlayerSpec.vue', () => {
       expect(stub).toBeCalled();
     });
 
-    it('when you click the lizard option, it triggers a method to inform the choosed option', () => {
-      const stub = jest.fn();
+    it('triggers a playerChoose event with lizard option when a playerChoose method is called', () => {
       cmp = createCmp({ isComputer: false, gameHasStarted: true, playerOptions });
-      cmp.setMethods({ playerChoose: stub });
+      const stub = jest.fn();
+      cmp.vm.$on('playerChoose', stub);
       cmp.find('.lizard-opt').trigger('click');
-      expect(stub).toBeCalled();
+      expect(stub).toBeCalledWith(playerOptions.lizard);
     });
 
     it('when you click the rock option, it triggers a method to inform the choosed option', () => {
@@ -137,12 +154,28 @@ describe('PlayerSpec.vue', () => {
       expect(stub).toBeCalled();
     });
 
+    it('triggers a playerChoose event with rock option when a playerChoose method is called', () => {
+      cmp = createCmp({ isComputer: false, gameHasStarted: true, playerOptions });
+      const stub = jest.fn();
+      cmp.vm.$on('playerChoose', stub);
+      cmp.find('.rock-opt').trigger('click');
+      expect(stub).toBeCalledWith(playerOptions.rock);
+    });
+
     it('when you click the scissors option, it triggers a method to inform the choosed option', () => {
       const stub = jest.fn();
       cmp = createCmp({ isComputer: false, gameHasStarted: true, playerOptions });
       cmp.setMethods({ playerChoose: stub });
       cmp.find('.scissors-opt').trigger('click');
       expect(stub).toBeCalled();
+    });
+
+    it('triggers a playerChoose event with scissors option when a playerChoose method is called', () => {
+      cmp = createCmp({ isComputer: false, gameHasStarted: true, playerOptions });
+      const stub = jest.fn();
+      cmp.vm.$on('playerChoose', stub);
+      cmp.find('.scissors-opt').trigger('click');
+      expect(stub).toBeCalledWith(playerOptions.scissors);
     });
 
     it('when you click the spock option, it triggers a method to inform the choosed option', () => {
@@ -153,12 +186,28 @@ describe('PlayerSpec.vue', () => {
       expect(stub).toBeCalled();
     });
 
+    it('triggers a playerChoose event with spock option when a playerChoose method is called', () => {
+      cmp = createCmp({ isComputer: false, gameHasStarted: true, playerOptions });
+      const stub = jest.fn();
+      cmp.vm.$on('playerChoose', stub);
+      cmp.find('.spock-opt').trigger('click');
+      expect(stub).toBeCalledWith(playerOptions.spock);
+    });
+
     it('when you click the paper option, it triggers a method to inform the choosed option', () => {
       const stub = jest.fn();
       cmp = createCmp({ isComputer: false, gameHasStarted: true, playerOptions });
       cmp.setMethods({ playerChoose: stub });
       cmp.find('.paper-opt').trigger('click');
       expect(stub).toBeCalled();
+    });
+
+    it('triggers a playerChoose event with paper option when a playerChoose method is called', () => {
+      cmp = createCmp({ isComputer: false, gameHasStarted: true, playerOptions });
+      const stub = jest.fn();
+      cmp.vm.$on('playerChoose', stub);
+      cmp.find('.paper-opt').trigger('click');
+      expect(stub).toBeCalledWith(playerOptions.paper);
     });
   });
 });
