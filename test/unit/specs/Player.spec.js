@@ -86,7 +86,7 @@ describe('PlayerSpec.vue', () => {
       expect(stub).toBeCalled();
     });
 
-    it('dont trigger a startGame event with rock option when a startGame method is called and has no name', () => {
+    it('dont trigger a startGame event when a startGame method is called and has no name', () => {
       cmp = createCmp();
       cmp.vm.name = '';
       const stub = jest.fn();
@@ -95,7 +95,7 @@ describe('PlayerSpec.vue', () => {
       expect(stub).not.toHaveBeenCalled();
     });
 
-    it('triggers a startGame event with rock option when a startGame method is called and has a name', () => {
+    it('triggers a startGame event with a name string when a startGame method is called and has a name', () => {
       cmp = createCmp();
       const stub = jest.fn();
       cmp.vm.$on('startGame', stub);
