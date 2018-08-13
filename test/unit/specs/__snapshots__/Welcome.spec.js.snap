@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WelcomeSpec.vue has the expected html structure 1`] = `
+<div
+  class="column is-half is-offset-one-quarter"
+>
+  <div
+    class="box"
+  >
+    <div>
+      <a
+        class="button is-success is-outlined is-large is-fullwidth"
+        id="start-game"
+      >
+        <span
+          class="icon is-large"
+        >
+          <i
+            class="fas fa-hand-scissors"
+          />
+        </span>
+         
+        <span>
+          Start a game
+        </span>
+      </a>
+       
+      <a
+        class="button is-outlined is-large is-fullwidth"
+        href="https://pt.wikipedia.org/wiki/Pedra-papel-tesoura-lagarto-Spock"
+        target="_blank"
+      >
+        <span
+          class="icon is-large"
+        >
+          <i
+            class="fas fa-question-circle"
+          />
+        </span>
+         
+        <span>
+          What's Jokenpo?
+        </span>
+      </a>
+       
+      <a
+        class="button is-outlined is-large is-fullwidth"
+        href="https://github.com/marciogurka/vuejs-jokenpo"
+        target="_blank"
+      >
+        <span
+          class="icon is-large"
+        >
+          <i
+            class="fas fa-code"
+          />
+        </span>
+         
+        <span>
+          See the source code
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+`;
