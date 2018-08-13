@@ -1,7 +1,7 @@
 {
   "name": "vuejs-jokenpo",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A Vue.js Jokenpo project",
   "author": "Márcio José Gurka Jr. <marciogurkajr@gmail.com>",
   "private": true,
   "scripts": {
